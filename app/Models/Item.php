@@ -26,6 +26,12 @@ class Item extends Model
                 ->orWhere('description', 'like', '%' . $filters['search'] . '%')
                 ->limit(10);
         }
+
+        if ($filters['content_type'] ?? false) {
+            $query
+                ->where('content_type', 'like', '%' . $filters['content_type'] . '%')
+                ->limit(10);
+        }
     }
 
     public function getTypeIconAttribute($value): string
