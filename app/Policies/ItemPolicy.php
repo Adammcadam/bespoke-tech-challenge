@@ -29,18 +29,18 @@ class ItemPolicy
     {
         return $user->admin;
     }
-    public function delete(User $user, Item $item)
+    public function delete(User $user, Item $item): bool
     {
-        //
+        return $user->admin;
     }
 
-    public function restore(User $user, Item $item)
+    public function restore(User $user, Item $item): bool
     {
-        //
+        return $user->admin;
     }
 
-    public function forceDelete(User $user, Item $item)
+    public function forceDelete(User $user, Item $item): bool
     {
-        //
+        return $user->admin;
     }
 }

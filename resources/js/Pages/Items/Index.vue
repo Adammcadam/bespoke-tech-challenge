@@ -39,7 +39,7 @@ const props = defineProps({
                                                 <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Name</th>
                                                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Type</th>
                                                 <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Active</th>
-                                                <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6 text-sm font-semibold text-gray-900 text-right">
+                                                <th colspan="2" scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6 text-sm font-semibold text-gray-900 text-centre">
                                                     Actions
                                                     <span class="sr-only">Actions</span>
                                                 </th>
@@ -54,6 +54,13 @@ const props = defineProps({
                                                     <Link class="text-indigo-600 hover:text-indigo-900 cursor-pointer"
                                                         :href="route('admin.items.edit', item.id)">
                                                         Edit
+                                                    </Link>
+                                                </td>
+                                                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                    <Link class="text-red-600 hover:text-red-900 cursor-pointer"
+                                                        :href="route('admin.items.delete', item.id)"
+                                                    >
+                                                        Delete
                                                     </Link>
                                                 </td>
                                             </tr>

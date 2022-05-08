@@ -16,6 +16,7 @@ class ItemsController extends Controller
 {
     public function index(): Response
     {
+        // TODO:: Pagination needed
         return Inertia::render('Items/Index', [
             'items' => Item::query()->oldest()->limit(10)->get(),
         ]);
@@ -72,5 +73,14 @@ class ItemsController extends Controller
         $item->push();
 
         return redirect()->route('admin.items.index')->with('message', 'Successfully Updated Item');
+    }
+
+    public function delete(Item $item): RedirectResponse
+    {
+        $item->delete();
+
+        // TODO:: possibly add a delete boolean to the item model to soft delete rather than destroy the item
+
+        return redirect()->route('admin.items.index')->with('message', 'Successfully Deleted Item');
     }
 }
