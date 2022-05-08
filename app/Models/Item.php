@@ -18,6 +18,16 @@ class Item extends Model
         'id'
     ];
 
+    public function scopeSearch($query, array $filters)
+    {
+        if ($filters['search'] ?? false) {
+            $query
+                ->where('name', 'like', '%' . $filters['search'] . '%')
+                ->orWhere('description', 'like', '%' . $filters['search'] . '%')
+                ->limit(10);
+        }
+    }
+
     public function getTypeIconAttribute($value): string
     {
         return match($this->content_type) {
